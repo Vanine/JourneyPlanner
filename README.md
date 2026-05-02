@@ -10,7 +10,7 @@ An iOS app for planning public transport journeys using mock data, with a **Widg
 | :---: | :---: | :---: | :---: |
 | ![Search](screenshots/search.png) | ![Results](screenshots/results.png) | ![Details](screenshots/details.png) | ![Favorites](screenshots/favorites.png) |
 
-| Widget - Routes | Widget - Departures | Watch — Routes | Watch — Departures |
+| Widget - Routes | Widget - Departures | Watch - Routes | Watch - Departures |
 | :---: | :---: | :---: | :---: |
 | ![Widget Routes](screenshots/widget-routes.png) | ![Widget Departures](screenshots/widget-departures.png) | ![Watch Routes](screenshots/watch-routes.png) | ![Watch Departures](screenshots/watch-departures.png) |
 
