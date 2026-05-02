@@ -110,7 +110,7 @@ The main app and the widget target join the App Group **`group.app.journey.plann
 - **Architecture**: MVVM + Coordinator (iOS), MVVM (watch), protocol-oriented services, DI containers
 - **Concurrency**: `async/await`, `Task`, `MainActor`, strict `nonisolated` data types
 - **Persistence**: `SwiftData` (`@Model` entities for favorites and recent searches)
-- **Cross-target storage**: App Group `UserDefaults` suite (`group.app.rork.i2jxacaagr1pjqjh9ebe6`)
+- **Cross-target storage**: App Group `UserDefaults` suite (`group.app.journey.planner`)
 - **Deep linking**: custom URL scheme `journeyplanner://`
 - **Networking**: `URLSession` behind a `NetworkService` protocol (mock + real)
 - **Min iOS**: 18.0 · **Min watchOS**: 11.0
