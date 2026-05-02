@@ -115,14 +115,14 @@
 		};
 		AA00000000000000000000AC /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 				AA00000000000000000000AD /* JourneyPlannerWidget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -190,6 +190,9 @@
 		2D1A17F92FA64E240009390A /* JourneyPlannerWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPlannerWatchApp.swift; sourceTree = "<group>"; };
 		2D1A17FA2FA64E240009390A /* WatchDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataStore.swift; sourceTree = "<group>"; };
 		2D1A17FB2FA64E240009390A /* WatchSessionRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionRelay.swift; sourceTree = "<group>"; };
+		2DC75B672FA690780093A7A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2DC75B682FA693550093A7A5 /* JourneyPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JourneyPlanner.entitlements; sourceTree = "<group>"; };
+		2DC75B692FA693650093A7A5 /* JourneyPlannerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JourneyPlannerWidget.entitlements; sourceTree = "<group>"; };
 		AA00000000000000000000A2 /* JourneyPlannerWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JourneyPlannerWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -411,6 +414,7 @@
 		2D1A17AF2FA64CAE0009390A /* JourneyPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				2DC75B682FA693550093A7A5 /* JourneyPlanner.entitlements */,
 				2D1A18892FA66D810009390A /* Resources */,
 				2D1A177F2FA64CAE0009390A /* App */,
 				2D1A179C2FA64CAE0009390A /* Core */,
@@ -422,6 +426,8 @@
 		2D1A17DF2FA64CB60009390A /* JourneyPlannerWidget */ = {
 			isa = PBXGroup;
 			children = (
+				2DC75B692FA693650093A7A5 /* JourneyPlannerWidget.entitlements */,
+				2DC75B672FA690780093A7A5 /* Info.plist */,
 				2D1A17DB2FA64CB60009390A /* AppGroupShared.swift */,
 				2D1A17DC2FA64CB60009390A /* JourneyPlannerWidgetBundle.swift */,
 				2D1A17DD2FA64CB60009390A /* NextDepartureWidget.swift */,
@@ -968,6 +974,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JourneyPlanner/JourneyPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TYU4X268K4;
@@ -1001,6 +1008,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JourneyPlanner/JourneyPlanner.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TYU4X268K4;
@@ -1185,10 +1193,12 @@
 		AA00000000000000000000A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JourneyPlannerWidget/JourneyPlannerWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TYU4X268K4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JourneyPlannerWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Journey Planner";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -1215,10 +1225,12 @@
 		AA00000000000000000000A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JourneyPlannerWidget/JourneyPlannerWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TYU4X268K4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JourneyPlannerWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Journey Planner";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;

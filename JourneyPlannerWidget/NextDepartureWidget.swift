@@ -117,7 +117,7 @@ private struct DepartureView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: family == .systemMedium ? 10 : 6) {
+        VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
                 Image(systemName: departure.transportSymbol)
                     .foregroundStyle(.blue)
@@ -130,14 +130,12 @@ private struct DepartureView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(timeText)
-                    .font(.system(size: family == .systemMedium ? 36 : 28, weight: .bold, design: .rounded))
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 Text(minutesAway == 0 ? "Departing now" : "in \(minutesAway) min")
                     .font(.caption2)
                     .foregroundStyle(.white.opacity(0.6))
             }
-
-            Spacer(minLength: 0)
 
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 1) {
@@ -159,7 +157,7 @@ private struct DepartureView: View {
                 }
             }
         }
-        .padding(.vertical, 2)
+        .padding(.vertical, 20)
         .widgetURL(DeepLink.url(for: route))
     }
 

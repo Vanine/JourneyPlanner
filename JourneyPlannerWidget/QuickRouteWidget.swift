@@ -89,7 +89,7 @@ struct QuickRouteEntryView: View {
                 }
 
                 let visible = Array(entry.routes.prefix(family == .systemMedium ? 3 : 2))
-                ForEach(visible) { route in
+                ForEach(visible.prefix(2)) { route in
                     RouteRow(route: route)
                 }
                 Spacer(minLength: 0)

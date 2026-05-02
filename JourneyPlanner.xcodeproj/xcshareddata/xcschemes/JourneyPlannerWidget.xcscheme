@@ -43,7 +43,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA00000000000000000000B1"
+               BlueprintIdentifier = "2D1A17662FA64C710009390A"
                BuildableName = "JourneyPlannerWatch.app"
                BlueprintName = "JourneyPlannerWatch"
                ReferencedContainer = "container:JourneyPlanner.xcodeproj">
@@ -70,8 +70,12 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "app.journey.planner"
+         RemotePath = "/Users/vanineghazaryan/Library/Developer/CoreSimulator/Devices/B7A25CC6-9761-429F-8E56-571E6A73A281/data/Containers/Bundle/Application/607C9A44-C147-4D49-8A2E-2D357B60DAE2/JourneyPlanner.app">
+      </RemoteRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "105FC5792E9EAD3100EA8BCF"
@@ -79,7 +83,19 @@
             BlueprintName = "JourneyPlanner"
             ReferencedContainer = "container:JourneyPlanner.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "NextDepartureWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "QuickRouteWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
