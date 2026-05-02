@@ -8,11 +8,11 @@ An iOS app for planning public transport journeys using mock data, with a **Widg
 
 | Search | Results | Details | Favorites |
 | :---: | :---: | :---: | :---: |
-| ![Search](screenshots/search.png) | ![Results](screenshots/results.png) | ![Details](screenshots/details.png) | ![Favorites](screenshots/favorites.png) |
+| <img src="screenshots/search.png" width="200"/> | <img src="screenshots/results.png" width="200"/> | <img src="screenshots/details.png" width="200"/> | <img src="screenshots/favorites.png" width="200"/> |
 
-| Widget - Routes | Widget - Departures | Watch - Routes | Watch - Departures |
+| Widget Routes | Widget Departures | Watch Routes | Watch Departures |
 | :---: | :---: | :---: | :---: |
-| ![Widget Routes](screenshots/widget-routes.png) | ![Widget Departures](screenshots/widget-departures.png) | ![Watch Routes](screenshots/watch-routes.png) | ![Watch Departures](screenshots/watch-departures.png) |
+| <img src="screenshots/widget-routes.png" width="200"/> | <img src="screenshots/widget-departures.png" width="200"/> | <img src="screenshots/watch-routes.png" width="200"/> | <img src="screenshots/watch-departures.png" width="200"/> |
 
 
 ---
