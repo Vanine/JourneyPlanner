@@ -10,9 +10,9 @@ An iOS app for planning public transport journeys using mock data, with a **Widg
 | :---: | :---: | :---: | :---: |
 | ![Search](screenshots/search.png) | ![Results](screenshots/results.png) | ![Details](screenshots/details.png) | ![Favorites](screenshots/favorites.png) |
 
-| Widgets | Watch — Routes | Watch — Departures |
-| :---: | :---: | :---: |
-| ![Widgets](screenshots/widgets.png) | ![Watch Routes](screenshots/watch-routes.png) | ![Watch Departures](screenshots/watch-departures.png) |
+| Widget - Routes | Widget - Departures | Watch — Routes | Watch — Departures |
+| :---: | :---: | :---: | :---: |
+| ![Widget Routes](screenshots/widget-routes.png) | ![Widget Departures](screenshots/widget-departures.png) | ![Watch Routes](screenshots/watch-routes.png) | ![Watch Departures](screenshots/watch-departures.png) |
 
 
 ---
@@ -58,33 +58,6 @@ Three platform targets share one persistence + networking spine. The iOS app is 
 3. `SharedRouteSynchronizer.refreshDepartures()` runs in the background, fetches fresh journeys via the same `JourneyService`, and writes `SharedDeparture` snapshots into the App Group.
 4. `WidgetCenter.reloadAllTimelines()` is invoked, prompting WidgetKit to re-render. The watch app reads the same store on `.task` / pull-to-refresh.
 
-**Folder structure**
-
-```
-ios/
-├── JourneyPlanner/                # iOS app target (UIKit + MVVM + Coordinator)
-│   ├── App/                       # AppDelegate, SceneDelegate, Coordinators, DI
-│   ├── Core/
-│   │   ├── Models/                # Journey, Leg, Location
-│   │   ├── Networking/            # NetworkService protocol + Mock
-│   │   ├── Persistence/           # SwiftData entities & repositories
-│   │   ├── Services/              # JourneyService, LocationService
-│   │   ├── Shared/                # AppGroup, SharedRoute(Store|Synchronizer)
-│   │   └── UI/                    # PrimaryButton, RoundedTextField, StateView…
-│   └── Features/                  # Search, Results, Details, Favorites
-├── JourneyPlannerWidget/          # WidgetKit extension target
-│   ├── JourneyPlannerWidgetBundle.swift
-│   ├── NextDepartureWidget.swift  # TimelineProvider + entry view, .systemSmall/Medium
-│   ├── QuickRouteWidget.swift     # Multi-route deep-link grid
-│   └── AppGroupShared.swift       # Mirrored DTOs + read-only App Group reader
-└── JourneyPlannerWatch/           # watchOS single-target app
-    ├── JourneyPlannerWatchApp.swift
-    ├── FavoritesListView.swift / DeparturesView.swift
-    ├── FavoritesViewModel.swift / DeparturesViewModel.swift
-    ├── WatchDataStore.swift       # Protocol + AppGroup-backed implementation + samples
-    └── AppGroupShared.swift       # Mirrored DTOs
-```
-
 ---
 
 ## Shared Data — App Groups
@@ -116,7 +89,7 @@ The main app and the widget target join the App Group **`group.app.journey.plann
 
 ### WidgetKit extension
 - **Next Departure Widget** (small / medium) — first transit leg of the next saved-route journey, with line, platform badge, on-time/delayed pill, and minutes-until-departure.
-- **Quick Routes Widget** (small / medium) — up to 3 saved routes, each tap deep-links to the iOS results screen.
+- **Quick Routes Widget** (small / medium) — up to 2 saved routes, each tap deep-links to the iOS results screen.
 - **Timeline policy** — refresh every 5 min for departures, every 15 min for the route grid; `WidgetCenter.reloadAllTimelines()` invalidates the timeline immediately on every iOS-side change.
 - **Placeholder + snapshot states** — sample data for the widget gallery, graceful empty states when no routes are saved.
 
