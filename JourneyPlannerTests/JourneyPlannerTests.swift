@@ -31,7 +31,7 @@ struct JourneyPlannerTests {
         return Journey(id: id, departure: dep, arrival: arr, legs: legs)
     }
 
-    @Test func sortByEarliestOrdersByDeparture() {
+    @MainActor @Test func sortByEarliestOrdersByDeparture() {
         let a = makeJourney(id: "a", departIn: 10, durationMin: 30, transfers: 1)
         let b = makeJourney(id: "b", departIn: 5,  durationMin: 60, transfers: 0)
         let c = makeJourney(id: "c", departIn: 15, durationMin: 20, transfers: 2)
@@ -39,7 +39,7 @@ struct JourneyPlannerTests {
         #expect(result.map(\.id) == ["b", "a", "c"])
     }
 
-    @Test func sortByFastestOrdersByDuration() {
+    @MainActor @Test func sortByFastestOrdersByDuration() {
         let a = makeJourney(id: "a", departIn: 10, durationMin: 30, transfers: 1)
         let b = makeJourney(id: "b", departIn: 5,  durationMin: 60, transfers: 0)
         let c = makeJourney(id: "c", departIn: 15, durationMin: 20, transfers: 2)
@@ -47,7 +47,7 @@ struct JourneyPlannerTests {
         #expect(result.map(\.id) == ["c", "a", "b"])
     }
 
-    @Test func sortByFewestTransfersOrdersByTransferCount() {
+    @MainActor @Test func sortByFewestTransfersOrdersByTransferCount() {
         let a = makeJourney(id: "a", departIn: 10, durationMin: 30, transfers: 1)
         let b = makeJourney(id: "b", departIn: 5,  durationMin: 60, transfers: 0)
         let c = makeJourney(id: "c", departIn: 15, durationMin: 20, transfers: 2)
