@@ -1,6 +1,6 @@
 # Journey Planner
 
-A production-level iOS app for planning public transport journeys, with a **WidgetKit extension** and a **watchOS companion app** built on a shared services layer. Built with **UIKit + MVVM + Coordinator** on iOS, **SwiftUI** on watch and widget, and **async/await** throughout.
+An iOS app for planning public transport journeys using mock data, with a **WidgetKit extension** and a **watchOS companion app** built on a shared services layer. Built with **UIKit + MVVM + Coordinator** on iOS, **SwiftUI** on watch and widget, and **async/await** throughout.
 
 ---
 
@@ -8,13 +8,12 @@ A production-level iOS app for planning public transport journeys, with a **Widg
 
 | Search | Results | Details | Favorites |
 | :---: | :---: | :---: | :---: |
-| ![Search](docs/screenshots/search.png) | ![Results](docs/screenshots/results.png) | ![Details](docs/screenshots/details.png) | ![Favorites](docs/screenshots/favorites.png) |
+| ![Search](screenshots/search.png) | ![Results](screenshots/results.png) | ![Details](screenshots/details.png) | ![Favorites](screenshots/favorites.png) |
 
-| Next Departure Widget | Quick Routes Widget | Watch — Routes | Watch — Departures |
-| :---: | :---: | :---: | :---: |
-| ![Widget Next](docs/screenshots/widget-next.png) | ![Widget Quick](docs/screenshots/widget-quick.png) | ![Watch Routes](docs/screenshots/watch-routes.png) | ![Watch Departures](docs/screenshots/watch-departures.png) |
+| Widgets | Watch — Routes | Watch — Departures |
+| :---: | :---: | :---: |
+| ![Widgets](screenshots/widgets.png) | ![Watch Routes](screenshots/watch-routes.png) | ![Watch Departures](screenshots/watch-departures.png) |
 
-> Place screenshots in `docs/screenshots/`. Capture from the iOS / watchOS Simulator (`Cmd + S`).
 
 ---
 
@@ -36,12 +35,12 @@ Three platform targets share one persistence + networking spine. The iOS app is 
 │  DIContainer               │      │                     │      │                     │
 │      │                     │      ▼                     │      ▼                     │
 │  Services + Repositories   │  WidgetSharedReader        │  WatchDataStore            │
-│      │                     │      │                     │      │                     │
-│      ▼                     │      ▼                     │      ▼                     │
+│      │                     │      │                     │                            │
+│      ▼                     │      ▼                     │                            │
 │  SharedRouteSynchronizer ──┼──┐                         │                            │
 │      │                     │  │                         │                            │
 │      ▼                     │  ▼                         │                            │
-│  AppGroupRouteStore ───────┴──┴─── App Group UserDefaults (group.app.rork.…) ────────┘
+│  AppGroupRouteStore ───────┴──┴─── App Group UserDefaults (group.app.journey.planner) ────────┘
 │  (writes routes + cached departures)
 │      │
 │      ▼
@@ -90,13 +89,7 @@ ios/
 
 ## Shared Data — App Groups
 
-All three targets join the App Group **`group.app.rork.i2jxacaagr1pjqjh9ebe6`** and exchange JSON-encoded DTOs through a shared `UserDefaults` suite. The contract lives in `AppGroup.Keys`:
-
-| Key | Owner | Reader | Payload |
-| --- | --- | --- | --- |
-| `shared.savedRoutes.v1` | iOS app | Widget, Watch | `[SharedRoute]` |
-| `shared.cachedDepartures.v1` | iOS app | Widget, Watch | `[String: [SharedDeparture]]` keyed by route id |
-| `shared.lastUpdated.v1` | iOS app | (debug) | `Date` |
+The main app and the widget target join the App Group **`group.app.journey.planner`** and exchange JSON-encoded DTOs through a shared `UserDefaults` suite. The contract lives in `AppGroup.Keys`:
 
 `SharedRoute` and `SharedDeparture` are intentionally flat, free of UIKit/SwiftUI imports, and duplicated verbatim across targets so each can compile against only the frameworks it needs. The iOS app is the only writer; widget/watch reads are best-effort and fall back to placeholder/sample data when the cache is cold.
 
